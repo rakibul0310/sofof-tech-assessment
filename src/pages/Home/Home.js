@@ -1,9 +1,30 @@
+"use client";
+
+import { useNavigate } from "react-router-dom";
 import Carousel from "../../components/UI/Carousel";
-import LiveBanner from "../../components/UI/LiveBanner";
-import PremiumBanner from "../../components/UI/PremiumBanner";
 import ServiceCard from "../../components/UI/ServiceCard";
+import PremiumBanner from "../../components/UI/PremiumBanner";
+import LiveBanner from "../../components/UI/LiveBanner";
 
 const Home = () => {
+  const navigate = useNavigate();
+
+  const handleServiceCardClick = (serviceType) => {
+    switch (serviceType) {
+      case "mecca-mosques":
+        navigate("/mecca-mosques");
+        break;
+      case "help":
+        console.log("Navigate to help page");
+        break;
+      case "feeding":
+        console.log("Navigate to feeding page");
+        break;
+      default:
+        console.log("Service not implemented yet");
+    }
+  };
+
   const carouselSlides = [
     <div
       key="slide1"
@@ -128,63 +149,69 @@ const Home = () => {
 
       {/* Services Grid */}
       <div className="grid grid-cols-3 gap-4 mb-6">
-        <ServiceCard
-          icon={
-            <svg
-              className="w-8 h-8 text-purple-600"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={1.5}
-                d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
-              />
-            </svg>
-          }
-          title="مساعدة مكة"
-          description=""
-        />
-        <ServiceCard
-          icon={
-            <svg
-              className="w-8 h-8 text-purple-600"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={1.5}
-                d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
-              />
-            </svg>
-          }
-          title="مسجد مكة المكرمة"
-          description=""
-        />
-        <ServiceCard
-          icon={
-            <svg
-              className="w-8 h-8 text-purple-600"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={1.5}
-                d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
-              />
-            </svg>
-          }
-          title="سقيا وإطعام الحرم"
-          description=""
-        />
+        <div onClick={() => handleServiceCardClick("help")}>
+          <ServiceCard
+            icon={
+              <svg
+                className="w-8 h-8 text-purple-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1.5}
+                  d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+                />
+              </svg>
+            }
+            title="مساعدة مكة"
+            description=""
+          />
+        </div>
+        <div onClick={() => handleServiceCardClick("mecca-mosques")}>
+          <ServiceCard
+            icon={
+              <svg
+                className="w-8 h-8 text-purple-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1.5}
+                  d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                />
+              </svg>
+            }
+            title="مسجد مكة المكرمة"
+            description=""
+          />
+        </div>
+        <div onClick={() => handleServiceCardClick("feeding")}>
+          <ServiceCard
+            icon={
+              <svg
+                className="w-8 h-8 text-purple-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1.5}
+                  d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+                />
+              </svg>
+            }
+            title="سقيا وإطعام الحرم"
+            description=""
+          />
+        </div>
       </div>
 
       {/* Premium Banner */}
