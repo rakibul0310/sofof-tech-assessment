@@ -1,0 +1,27 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import Layout from "./components/Layout/Layout"
+import Home from "./pages/Home/Home"
+import Cart from "./pages/Cart/Cart"
+import Orders from "./pages/Orders/Orders"
+import Media from "./pages/Media/Media"
+import Profile from "./pages/Profile/Profile"
+
+function App() {
+  return (
+    <Router>
+      <div className="App min-h-screen bg-gray-50">
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/orders" element={<Orders />} />
+            <Route path="/media" element={<Media />} />
+            <Route path="/profile" element={<Profile />} />
+          </Routes>
+        </Layout>
+      </div>
+    </Router>
+  )
+}
+
+export default App
