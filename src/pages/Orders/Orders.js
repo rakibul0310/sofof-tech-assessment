@@ -1,6 +1,6 @@
 "use client";
 
-import { Package, Clock, CheckCircle, XCircle, Eye } from "lucide-react";
+import { CheckCircle, Clock, Eye, Package, XCircle } from "lucide-react";
 import { useState } from "react";
 
 const Orders = () => {
@@ -12,8 +12,8 @@ const Orders = () => {
       status: "completed",
       total: 425,
       items: [
-        { name: "خدمة مساعدة الحج", quantity: 1, price: 150 },
-        { name: "دليل المساجد", quantity: 2, price: 75 },
+        { name: "Hajj Assistance Service", quantity: 1, price: 150 },
+        { name: "Mosque Guide", quantity: 2, price: 75 },
       ],
     },
     {
@@ -21,14 +21,14 @@ const Orders = () => {
       date: "2024-01-10",
       status: "pending",
       total: 200,
-      items: [{ name: "خدمة الإطعام", quantity: 1, price: 200 }],
+      items: [{ name: "Feeding Service", quantity: 1, price: 200 }],
     },
     {
       id: "ORD-003",
       date: "2024-01-05",
       status: "cancelled",
       total: 150,
-      items: [{ name: "خدمة مساعدة الحج", quantity: 1, price: 150 }],
+      items: [{ name: "Hajj Assistance Service", quantity: 1, price: 150 }],
     },
     {
       id: "ORD-004",
@@ -36,27 +36,27 @@ const Orders = () => {
       status: "processing",
       total: 300,
       items: [
-        { name: "دليل المساجد", quantity: 2, price: 75 },
-        { name: "خدمة الإطعام", quantity: 1, price: 150 },
+        { name: "Mosque Guide", quantity: 2, price: 75 },
+        { name: "Feeding Service", quantity: 1, price: 150 },
       ],
     },
   ]);
 
   const tabs = [
-    { id: "all", label: "الكل", count: orders.length },
+    { id: "all", label: "All", count: orders.length },
     {
       id: "completed",
-      label: "مكتملة",
+      label: "Completed",
       count: orders.filter((o) => o.status === "completed").length,
     },
     {
       id: "pending",
-      label: "معلقة",
+      label: "Pending",
       count: orders.filter((o) => o.status === "pending").length,
     },
     {
       id: "processing",
-      label: "قيد المعالجة",
+      label: "Processing",
       count: orders.filter((o) => o.status === "processing").length,
     },
   ];
@@ -79,15 +79,15 @@ const Orders = () => {
   const getStatusText = (status) => {
     switch (status) {
       case "completed":
-        return "مكتمل";
+        return "Completed";
       case "pending":
-        return "معلق";
+        return "Pending";
       case "processing":
-        return "قيد المعالجة";
+        return "Processing";
       case "cancelled":
-        return "ملغي";
+        return "Cancelled";
       default:
-        return "غير معروف";
+        return "Unknown";
     }
   };
 
@@ -137,9 +137,9 @@ const Orders = () => {
         <div className="text-center py-16">
           <Package className="w-24 h-24 mx-auto text-gray-300 mb-4" />
           <h3 className="text-xl font-semibold text-gray-600 mb-2">
-            لا توجد طلبات
+            No Orders
           </h3>
-          <p className="text-gray-500">لم تقم بإنشاء أي طلبات بعد</p>
+          <p className="text-gray-500">You have not created any orders yet</p>
         </div>
       ) : (
         <div className="space-y-4">
@@ -153,10 +153,10 @@ const Orders = () => {
                   {getStatusIcon(order.status)}
                   <div>
                     <h3 className="font-semibold text-gray-800">
-                      طلب #{order.id}
+                      Order #{order.id}
                     </h3>
                     <p className="text-sm text-gray-500">
-                      {new Date(order.date).toLocaleDateString("ar-SA")}
+                      {new Date(order.date).toLocaleDateString("en-US")}
                     </p>
                   </div>
                 </div>
@@ -181,7 +181,7 @@ const Orders = () => {
                       {item.name} × {item.quantity}
                     </span>
                     <span className="font-medium">
-                      {item.price * item.quantity} ر.س
+                      {item.price * item.quantity} SAR
                     </span>
                   </div>
                 ))}
@@ -190,12 +190,12 @@ const Orders = () => {
               <div className="flex items-center justify-between pt-4 border-t border-gray-100">
                 <button className="flex items-center space-x-2 text-purple-600 hover:text-purple-700 transition-colors">
                   <Eye className="w-4 h-4" />
-                  <span className="text-sm font-medium">عرض التفاصيل</span>
+                  <span className="text-sm font-medium">View Details</span>
                 </button>
                 <div className="text-right">
-                  <span className="text-sm text-gray-500">المجموع: </span>
+                  <span className="text-sm text-gray-500">Total: </span>
                   <span className="font-bold text-lg text-purple-600">
-                    {order.total} ر.س
+                    {order.total} SAR
                   </span>
                 </div>
               </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { Play, Download, Share2, Heart, Eye } from "lucide-react";
+import { Download, Eye, Heart, Play, Share2 } from "lucide-react";
 import { useState } from "react";
 
 const Media = () => {
@@ -8,66 +8,66 @@ const Media = () => {
   const [mediaItems] = useState([
     {
       id: 1,
-      title: "دليل الحج والعمرة",
+      title: "Hajj & Umrah Guide",
       titleEn: "Hajj & Umrah Guide",
       type: "video",
       duration: "15:30",
-      thumbnail: "/placeholder.svg?height=200&width=300",
+      thumbnail: "/assets/placeholder_image.webp",
       views: 1250,
       likes: 89,
       category: "educational",
     },
     {
       id: 2,
-      title: "جولة في المسجد الحرام",
+      title: "Tour of Masjid al-Haram",
       titleEn: "Tour of Masjid al-Haram",
       type: "video",
       duration: "8:45",
-      thumbnail: "/placeholder.svg?height=200&width=300",
+      thumbnail: "/assets/placeholder_image.webp",
       views: 2100,
       likes: 156,
       category: "tour",
     },
     {
       id: 3,
-      title: "أدعية الحج",
+      title: "Hajj Prayers",
       titleEn: "Hajj Prayers",
       type: "audio",
       duration: "12:20",
-      thumbnail: "/placeholder.svg?height=200&width=300",
+      thumbnail: "/assets/placeholder_image.webp",
       views: 890,
       likes: 67,
       category: "spiritual",
     },
     {
       id: 4,
-      title: "تاريخ مكة المكرمة",
+      title: "History of Makkah",
       titleEn: "History of Makkah",
       type: "video",
       duration: "25:15",
-      thumbnail: "/placeholder.svg?height=200&width=300",
+      thumbnail: "/assets/placeholder_image.webp",
       views: 1680,
       likes: 134,
       category: "educational",
     },
     {
       id: 5,
-      title: "مناسك العمرة",
+      title: "Umrah Rituals",
       titleEn: "Umrah Rituals",
       type: "video",
       duration: "18:30",
-      thumbnail: "/placeholder.svg?height=200&width=300",
+      thumbnail: "/assets/placeholder_image.webp",
       views: 3200,
       likes: 245,
       category: "educational",
     },
     {
       id: 6,
-      title: "أصوات الحرم",
+      title: "Sounds of Haram",
       titleEn: "Sounds of Haram",
       type: "audio",
       duration: "45:00",
-      thumbnail: "/placeholder.svg?height=200&width=300",
+      thumbnail: "/assets/placeholder_image.webp",
       views: 1450,
       likes: 98,
       category: "spiritual",
@@ -75,21 +75,21 @@ const Media = () => {
   ]);
 
   const categories = [
-    { id: "all", label: "الكل", count: mediaItems.length },
+    { id: "all", label: "All", count: mediaItems.length },
     {
       id: "educational",
-      label: "تعليمي",
+      label: "Educational",
       count: mediaItems.filter((item) => item.category === "educational")
         .length,
     },
     {
       id: "spiritual",
-      label: "روحاني",
+      label: "Spiritual",
       count: mediaItems.filter((item) => item.category === "spiritual").length,
     },
     {
       id: "tour",
-      label: "جولات",
+      label: "Tour",
       count: mediaItems.filter((item) => item.category === "tour").length,
     },
   ];
@@ -131,7 +131,7 @@ const Media = () => {
               <img
                 src={item.thumbnail || "/placeholder.svg"}
                 alt={item.title}
-                className="w-full h-48 object-cover"
+                className=""
               />
               <div className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
                 <button className="bg-white/90 p-3 rounded-full hover:bg-white transition-colors">
@@ -149,7 +149,7 @@ const Media = () => {
                       : "bg-green-500 text-white"
                   }`}
                 >
-                  {item.type === "video" ? "فيديو" : "صوت"}
+                  {item.type === "video" ? "Video" : "Audio"}
                 </span>
               </div>
             </div>
@@ -183,7 +183,7 @@ const Media = () => {
                   </button>
                 </div>
                 <button className="bg-purple-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-purple-700 transition-colors">
-                  تشغيل
+                  Play
                 </button>
               </div>
             </div>
@@ -194,10 +194,8 @@ const Media = () => {
       {filteredMedia.length === 0 && (
         <div className="text-center py-16">
           <Play className="w-24 h-24 mx-auto text-gray-300 mb-4" />
-          <h3 className="text-xl font-semibold text-gray-600 mb-2">
-            لا توجد وسائط
-          </h3>
-          <p className="text-gray-500">لا توجد وسائط في هذه الفئة</p>
+          <h3 className="text-xl font-semibold text-gray-600 mb-2">No Media</h3>
+          <p className="text-gray-500">No media available in this category</p>
         </div>
       )}
     </div>
