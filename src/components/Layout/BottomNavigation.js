@@ -12,9 +12,9 @@ const BottomNavigation = () => {
   ];
 
   return (
-    <nav className="fixed bottom-5 left-0 right-0 z-30">
+    <nav className="fixed bottom-3 left-0 right-0 z-30">
       <div className="max-w-sm mx-auto lg:max-w-xl bg-white border-t border-gray-200 rounded-full shadow-lg">
-        <div className="flex justify-around py-2 px-4">
+        <div className="flex justify-around py-1 px-4">
           {navItems.map((item) => {
             const isActive = location.pathname === item.path;
 
@@ -22,13 +22,13 @@ const BottomNavigation = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`flex flex-col items-center py-2 px-3 rounded-lg transition-colors min-w-0 ${
+                className={`flex flex-col items-center py-1 px-3 rounded-lg transition-colors min-w-0 ${
                   isActive
                     ? "text-purple-600"
                     : "text-gray-400 hover:text-purple-600"
                 }`}
               >
-                <img src={item.src} alt={item.label} />
+                <img src={item.src} alt={item.label} className="w-5 h-5" />
                 <span className="text-xs font-medium">{item.label}</span>
                 {isActive && (
                   <div className="w-8 h-1 bg-purple-600 rounded-full mt-1"></div>

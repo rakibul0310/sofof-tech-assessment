@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  ArrowLeft,
   ChevronDown,
   ChevronLeft,
   ChevronRight,
@@ -14,7 +13,7 @@ import { useNavigate } from "react-router-dom";
 
 const MeccaMosques = () => {
   const navigate = useNavigate();
-  const [currency, setCurrency] = useState("SAR");
+  const [currency, setCurrency] = useState("USD");
   const [showCurrencyDropdown, setShowCurrencyDropdown] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [statusFilter, setStatusFilter] = useState("all");
@@ -218,10 +217,10 @@ const MeccaMosques = () => {
             onClick={goBack}
             className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
           >
-            <ArrowLeft className="w-5 h-5 text-gray-600" />
+            <img src="/assets/back_btn.png" alt="Back" />
           </button>
           <div>
-            <h1 className="text-2xl font-bold text-gray-900">
+            <h1 className="text-[24px] md:text-[40px] w-[12rem] md:w-[32rem] leading-[1] font-bold text-gray-900">
               Mecca mosques most needed
             </h1>
           </div>
@@ -231,7 +230,7 @@ const MeccaMosques = () => {
         <div className="relative">
           <button
             onClick={() => setShowCurrencyDropdown(!showCurrencyDropdown)}
-            className="flex items-center space-x-2 bg-purple-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-purple-700 transition-colors"
+            className="flex items-center space-x-2 bg-[#3f2057] text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-purple-700 transition-colors"
           >
             <span>{currency}</span>
             <ChevronDown className="w-4 h-4" />
@@ -364,11 +363,11 @@ const MeccaMosques = () => {
           </button>
         </div>
       ) : (
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {paginatedProducts.map((product) => (
             <div
               key={product.id}
-              className={`bg-white rounded-2xl p-4 shadow-sm border border-gray-100 hover:shadow-md transition-shadow cursor-pointer ${
+              className={`bg-[#f5f2f8] rounded-2xl p-4 shadow-sm border border-gray-100 hover:shadow-md transition-shadow cursor-pointer ${
                 product.status === "out_of_stock" ? "opacity-60" : ""
               }`}
               onClick={() =>
@@ -377,17 +376,12 @@ const MeccaMosques = () => {
               }
             >
               {/* Product Image */}
-              <div className="bg-gray-50 rounded-xl p-4 mb-4 flex items-center justify-center h-32 relative">
-                <div className="w-20 h-24 bg-gradient-to-b from-purple-200 to-purple-300 rounded-lg flex items-center justify-center relative">
-                  {/* Water bottle carton mockup */}
-                  <div className="w-16 h-20 bg-white rounded border-2 border-purple-400 flex flex-col items-center justify-center">
-                    <div className="w-4 h-4 bg-purple-600 rounded-full mb-1"></div>
-                    <div className="text-xs font-bold text-purple-600">
-                      قطرات
-                    </div>
-                    <div className="text-xs text-gray-500 mt-1">Water</div>
-                  </div>
-                </div>
+              <div className="bg-gray-50 rounded-xl mb-4 flex items-center justify-center h-32 relative">
+                <img
+                  src={"/assets/product_image_277x196.png"}
+                  alt={product.name}
+                  className="w-full h-full object-cover rounded-lg"
+                />
                 {/* Status Badge */}
                 <div className="absolute top-2 right-2">
                   {getStatusBadge(product.status, product.stock)}
@@ -413,7 +407,7 @@ const MeccaMosques = () => {
               <button
                 onClick={(e) => addToCart(product, e)}
                 disabled={product.status === "out_of_stock"}
-                className={`w-full py-3 rounded-xl font-medium transition-colors flex items-center justify-center space-x-2 ${
+                className={`w-full py-3 rounded-full font-medium transition-colors flex items-center justify-center space-x-2 ${
                   product.status === "out_of_stock"
                     ? "bg-gray-300 text-gray-500 cursor-not-allowed"
                     : "bg-gray-800 text-white hover:bg-gray-900"

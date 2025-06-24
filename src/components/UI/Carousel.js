@@ -26,21 +26,26 @@ const Carousel = ({ slides }) => {
         <div
           className="flex transition-transform duration-500 ease-in-out gap-4 px-4"
           style={{
-            transform: `translateX(-${currentSlide * 280}px)`, // Adjust based on card width + gap
+            transform: `translateX(-${currentSlide * 304}px)`, // Adjust based on card width + gap
           }}
         >
           {slides.map((slide, index) => (
             <div
               key={index}
-              className={`flex-shrink-0 w-72 transition-all duration-300 ${
-                index === currentSlide
-                  ? "rounded-2xl scale-105 z-10"
-                  : "opacity-70 scale-95"
-              }`}
+              className={`flex-shrink-0 w-72 transition-all duration-300`}
             >
               {slide}
             </div>
           ))}
+          {currentSlide >= 2 &&
+            slides.slice(0, 4).map((slide, index) => (
+              <div
+                key={index}
+                className={`flex-shrink-0 w-72 transition-all duration-300`}
+              >
+                {slide}
+              </div>
+            ))}
         </div>
       </div>
 

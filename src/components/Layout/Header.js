@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import Sidebar from "./Sidebar";
 
 const Header = () => {
-  const [language, setLanguage] = useState("عربي");
+  const [language, setLanguage] = useState("Eng");
   const [showNotifications, setShowNotifications] = useState(false);
   const [showLanguageDropdown, setShowLanguageDropdown] = useState(false);
   const [showSidebar, setShowSidebar] = useState(false);
@@ -146,7 +146,7 @@ const Header = () => {
 
                 {/* Notifications Dropdown */}
                 {showNotifications && (
-                  <div className="absolute md:right-0 right-[-12rem] mt-2 w-80 bg-white rounded-xl shadow-lg border border-gray-200 z-50">
+                  <div className="absolute md:right-0 right-[-10rem] mt-2 w-80 bg-white rounded-xl shadow-lg border border-gray-200 z-50">
                     <div className="p-4 border-b border-gray-100">
                       <div className="flex items-center justify-between">
                         <h3 className="font-semibold text-gray-800">
@@ -239,7 +239,7 @@ const Header = () => {
               </div>
 
               {/* Logout Button - More Rounded */}
-              <button className="bg-purple-800 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-purple-900 transition-colors shadow-sm">
+              <button className="bg-[#3f2057] text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-purple-900 transition-colors shadow-sm">
                 Logout
               </button>
             </div>

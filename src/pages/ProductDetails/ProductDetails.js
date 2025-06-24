@@ -1,19 +1,13 @@
 "use client";
 
-import {
-  ArrowLeft,
-  ChevronDown,
-  Minus,
-  Plus,
-  ShoppingCart,
-} from "lucide-react";
+import { ChevronDown, Minus, Plus, ShoppingCart } from "lucide-react";
 import { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 
 const ProductDetails = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-  const [currency, setCurrency] = useState("SAR");
+  const [currency, setCurrency] = useState("USD");
   const [showCurrencyDropdown, setShowCurrencyDropdown] = useState(false);
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState(0);
@@ -91,19 +85,11 @@ const ProductDetails = () => {
     setQuantity(Math.max(1, quantity + change));
   };
 
-  const ProductImage = ({ isMain = false, className = "" }) => (
+  const ProductImage = ({ isMain = false, className = "", imgSrc }) => (
     <div
-      className={`bg-gray-50 rounded-xl flex items-center justify-center ${className}`}
+      className={`bg-[#f5f2f8] rounded-xl flex items-center justify-center ${className}`}
     >
-      <div className="w-24 h-32 bg-gradient-to-b from-purple-200 to-purple-300 rounded-lg flex items-center justify-center relative">
-        {/* Water bottle carton mockup */}
-        <div className="w-20 h-28 bg-white rounded border-2 border-purple-400 flex flex-col items-center justify-center">
-          <div className="w-6 h-6 bg-purple-600 rounded-full mb-2"></div>
-          <div className="text-sm font-bold text-purple-600">قطرات</div>
-          <div className="text-xs text-gray-500 mt-1">Water</div>
-          <div className="text-xs text-gray-400 mt-1">330ml</div>
-        </div>
-      </div>
+      <img src={imgSrc} alt={product.name} />
     </div>
   );
 
@@ -116,10 +102,10 @@ const ProductDetails = () => {
             onClick={goBack}
             className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
           >
-            <ArrowLeft className="w-5 h-5 text-gray-600" />
+            <img src="/assets/back_btn.png" alt="Back" />
           </button>
           <div>
-            <h1 className="text-2xl font-bold text-gray-900">
+            <h1 className="text-[24px] md:text-[40px] w-[12rem] md:w-[32rem] leading-[1] font-bold text-gray-900">
               Product Details
             </h1>
           </div>
@@ -129,7 +115,7 @@ const ProductDetails = () => {
         <div className="relative">
           <button
             onClick={() => setShowCurrencyDropdown(!showCurrencyDropdown)}
-            className="flex items-center space-x-2 bg-purple-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-purple-700 transition-colors"
+            className="flex items-center space-x-2 bg-[#3f2057] text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-purple-700 transition-colors"
           >
             <span>{currency}</span>
             <ChevronDown className="w-4 h-4" />
@@ -164,29 +150,39 @@ const ProductDetails = () => {
         {/* Product Images */}
         <div className="space-y-4">
           {/* Main Image */}
-          <ProductImage isMain className="h-80 p-8" />
+          <ProductImage
+            isMain
+            className="h-80 p-8"
+            imgSrc={"/assets/product_image_277x196.png"}
+          />
 
           {/* Thumbnail Images */}
           <div className="grid grid-cols-2 gap-4">
-            <ProductImage className="h-32 p-4 cursor-pointer hover:bg-gray-100 transition-colors" />
-            <ProductImage className="h-32 p-4 cursor-pointer hover:bg-gray-100 transition-colors" />
+            <ProductImage
+              className="h-32 p-4 cursor-pointer hover:bg-gray-100 transition-colors"
+              imgSrc={"/assets/product_image_134x88.png"}
+            />
+            <ProductImage
+              className="h-32 p-4 cursor-pointer hover:bg-gray-100 transition-colors"
+              imgSrc={"/assets/product_image_134x88.png"}
+            />
           </div>
         </div>
 
         {/* Product Info */}
-        <div className="space-y-6">
+        <div className="space-y-3">
           <div>
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">
+            <h2 className="text-2xl font-bold text-gray-900 mb-1">
               {product.name}
             </h2>
-            <p className="text-gray-600 mb-4">{product.description}</p>
-            <div className="text-3xl font-bold text-gray-900 mb-6">
+            <p className="text-gray-600 mb-1">{product.description}</p>
+            <div className="text-3xl font-bold text-gray-900 mb-1">
               {currentCurrency?.symbol} {(product.price * quantity).toFixed(1)}
             </div>
           </div>
 
           {/* Quantity Selector */}
-          <div className="flex items-center space-x-4 mb-6">
+          <div className="flex items-center space-x-4 mb-1">
             <span className="text-gray-700 font-medium">Quantity:</span>
             <div className="flex items-center space-x-2">
               <button
@@ -210,7 +206,7 @@ const ProductDetails = () => {
           {/* Add to Cart Button */}
           <button
             onClick={addToCart}
-            className="w-full bg-gray-800 text-white py-4 rounded-xl font-medium hover:bg-gray-900 transition-colors flex items-center justify-center space-x-2"
+            className="w-full bg-gray-800 text-white py-4 rounded-full font-medium hover:bg-gray-900 transition-colors flex items-center justify-center space-x-2"
           >
             <ShoppingCart className="w-5 h-5" />
             <span>Add to Cart</span>
@@ -218,7 +214,7 @@ const ProductDetails = () => {
 
           {/* Product Overview */}
           <div>
-            <h3 className="font-bold text-lg text-gray-900 mb-3">
+            <h3 className="font-bold text-lg text-gray-900 mb-1">
               Product Overview
             </h3>
             <p className="text-gray-600 leading-relaxed">{product.overview}</p>
@@ -226,16 +222,16 @@ const ProductDetails = () => {
 
           {/* Key Features */}
           <div>
-            <h3 className="font-bold text-lg text-gray-900 mb-3">
+            <h3 className="font-bold text-lg text-gray-900 mb-1">
               Key Features
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-1">
               {product.features.map((feature, index) => (
                 <li
                   key={index}
                   className="flex items-start space-x-2 text-gray-600"
                 >
-                  <span className="text-purple-600 mt-1">•</span>
+                  <span className="text-purple-600 mt-0">•</span>
                   <span>{feature}</span>
                 </li>
               ))}
@@ -250,21 +246,27 @@ const ProductDetails = () => {
           <h3 className="text-xl font-bold text-gray-900">
             Suggested Similar Products
           </h3>
-          <button className="text-purple-600 hover:text-purple-700 font-medium flex items-center space-x-1">
+          <NavLink
+            to="/mecca-mosques"
+            className="text-purple-600 hover:text-purple-700 font-medium flex items-center space-x-1"
+          >
             <span>See All</span>
             <ChevronDown className="w-4 h-4 rotate-[-90deg]" />
-          </button>
+          </NavLink>
         </div>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           {suggestedProducts.map((suggestedProduct) => (
             <div
               key={suggestedProduct.id}
-              className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100 hover:shadow-md transition-shadow cursor-pointer"
+              className="bg-[#f5f2f8] rounded-2xl p-4 shadow-sm border border-gray-100 hover:shadow-md transition-shadow cursor-pointer"
               onClick={() => navigate(`/product/${suggestedProduct.id}`)}
             >
               {/* Product Image */}
-              <ProductImage className="h-24 p-2 mb-4" />
+              <ProductImage
+                className="h-24 p-2 mb-4"
+                imgSrc={"/assets/product_image_134x88.png"}
+              />
 
               {/* Product Info */}
               <div className="text-center mb-4">
@@ -289,7 +291,7 @@ const ProductDetails = () => {
                   e.stopPropagation();
                   console.log("Added to cart:", suggestedProduct);
                 }}
-                className="w-full bg-gray-800 text-white py-2 rounded-lg text-sm font-medium hover:bg-gray-900 transition-colors"
+                className="w-full bg-gray-800 text-white py-2 rounded-full text-sm font-medium hover:bg-gray-900 transition-colors"
               >
                 Add to Cart
               </button>
