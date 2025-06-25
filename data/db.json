@@ -1,0 +1,181 @@
+{
+  "user": {
+    "id": 1,
+    "name": "Ahmed Mohammed",
+    "email": "ahmed@example.com",
+    "phone": "+966 50 123 4567",
+    "avatar": "/placeholder.svg?height=100&width=100",
+    "memberSince": "2023-01-15",
+    "isPremium": true,
+    "stats": {
+      "orders": 12,
+      "points": 450,
+      "level": "Gold"
+    }
+  },
+  "products": [
+    {
+      "id": 1,
+      "name": "5 Cartons Premium",
+      "description": "330 ml • 20 bottles",
+      "price": 50.0,
+      "status": "available",
+      "stock": 100,
+      "image": "/placeholder.svg?height=120&width=120",
+      "overview": "For this items it will be distributed in Haram and Around Haram from 1 Ramadan to 10 Ramadan",
+      "features": [
+        "100% natural spring water source",
+        "Advanced multi-stage filtration",
+        "BPA-free recyclable packaging",
+        "Perfect pH balance (7.0-7.5)",
+        "Convenient bulk packaging"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "5 Cartons Standard",
+      "description": "330 ml • 20 bottles",
+      "price": 45.0,
+      "status": "available",
+      "stock": 85,
+      "image": "/placeholder.svg?height=120&width=120",
+      "overview": "For this items it will be distributed in Haram and Around Haram from 1 Ramadan to 10 Ramadan",
+      "features": [
+        "100% natural spring water source",
+        "Advanced multi-stage filtration",
+        "BPA-free recyclable packaging",
+        "Perfect pH balance (7.0-7.5)",
+        "Convenient bulk packaging"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "10 Cartons Bulk",
+      "description": "330 ml • 40 bottles",
+      "price": 95.0,
+      "status": "limited",
+      "stock": 15,
+      "image": "/placeholder.svg?height=120&width=120",
+      "overview": "For this items it will be distributed in Haram and Around Haram from 1 Ramadan to 10 Ramadan",
+      "features": [
+        "100% natural spring water source",
+        "Advanced multi-stage filtration",
+        "BPA-free recyclable packaging",
+        "Perfect pH balance (7.0-7.5)",
+        "Convenient bulk packaging"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "3 Cartons Mini",
+      "description": "330 ml • 12 bottles",
+      "price": 30.0,
+      "status": "available",
+      "stock": 200,
+      "image": "/placeholder.svg?height=120&width=120",
+      "overview": "For this items it will be distributed in Haram and Around Haram from 1 Ramadan to 10 Ramadan",
+      "features": [
+        "100% natural spring water source",
+        "Advanced multi-stage filtration",
+        "BPA-free recyclable packaging",
+        "Perfect pH balance (7.0-7.5)",
+        "Convenient bulk packaging"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "7 Cartons Family",
+      "description": "330 ml • 28 bottles",
+      "price": 65.0,
+      "status": "out_of_stock",
+      "stock": 0,
+      "image": "/placeholder.svg?height=120&width=120",
+      "overview": "For this items it will be distributed in Haram and Around Haram from 1 Ramadan to 10 Ramadan",
+      "features": [
+        "100% natural spring water source",
+        "Advanced multi-stage filtration",
+        "BPA-free recyclable packaging",
+        "Perfect pH balance (7.0-7.5)",
+        "Convenient bulk packaging"
+      ]
+    }
+  ],
+  "orders": [
+    {
+      "id": "ORD-001",
+      "date": "2024-01-15",
+      "status": "completed",
+      "total": 425,
+      "items": [
+        {
+          "name": "Hajj Assistance Service",
+          "quantity": 1,
+          "price": 150
+        },
+        {
+          "name": "Mosque Guide",
+          "quantity": 2,
+          "price": 75
+        }
+      ]
+    },
+    {
+      "id": "ORD-002",
+      "date": "2024-01-10",
+      "status": "pending",
+      "total": 200,
+      "items": [
+        {
+          "name": "Feeding Service",
+          "quantity": 1,
+          "price": 200
+        }
+      ]
+    },
+    {
+      "id": "ORD-003",
+      "date": "2024-01-05",
+      "status": "cancelled",
+      "total": 150,
+      "items": [
+        {
+          "name": "Hajj Assistance Service",
+          "quantity": 1,
+          "price": 150
+        }
+      ]
+    }
+  ],
+  "media": [
+    {
+      "id": 1,
+      "title": "Hajj & Umrah Guide",
+      "type": "video",
+      "duration": "15:30",
+      "thumbnail": "/assets/placeholder_image.webp",
+      "views": 1250,
+      "likes": 89,
+      "category": "educational"
+    },
+    {
+      "id": 2,
+      "title": "Tour of Masjid al-Haram",
+      "type": "video",
+      "duration": "8:45",
+      "thumbnail": "/assets/placeholder_image.webp",
+      "views": 2100,
+      "likes": 156,
+      "category": "tour"
+    },
+    {
+      "id": 3,
+      "title": "Hajj Prayers",
+      "type": "audio",
+      "duration": "12:20",
+      "thumbnail": "/assets/placeholder_image.webp",
+      "views": 890,
+      "likes": 67,
+      "category": "spiritual"
+    }
+  ]
+}
